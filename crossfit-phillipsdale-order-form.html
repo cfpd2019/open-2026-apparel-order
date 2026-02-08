@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFit Phillipsdale - The Open 2026 Apparel Order</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .logo-showcase {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #e2e8f0;
+        }
+
+        .logo-showcase-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-image {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .form-content {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .product-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+            flex: 1;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #667eea;
+            margin-left: 10px;
+        }
+
+        .size-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .size-option {
+            position: relative;
+        }
+
+        .size-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .size-option label {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .size-option input[type="radio"]:checked + label {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-selector label {
+            margin-bottom: 0;
+        }
+
+        .quantity-selector input[type="number"] {
+            width: 80px;
+            padding: 8px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .note {
+            background: #fef5e7;
+            border-left: 4px solid #f39c12;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #6b5416;
+            margin-top: 20px;
+        }
+
+        .order-summary {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .summary-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .total-row {
+            border-top: 2px solid #cbd5e0;
+            padding-top: 10px;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #2d3748;
+        }
+
+        @media (max-width: 480px) {
+            .size-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏋️ CrossFit Phillipsdale</h1>
+            <p>The Open 2026 Apparel Order Form</p>
+        </div>
+
+        <div class="logo-showcase">
+            <div class="logo-showcase-title">Design Preview</div>
+            <img src="https://fullyamped.com/cdn/shop/files/29681132850923152BLACK.png?v=1770275555&width=600" 
+                 alt="The Open 2026 Logo" 
+                 class="logo-image"
+                 style="object-fit: cover; object-position: center 30%; height: 250px; max-width: 100%;">
+        </div>
+
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; text-align: center; font-weight: 600; color: #856404;">
+            📅 Order Deadline: February 14th, 2026
+        </div>
+
+        <div class="form-content">
+            <form id="orderForm">
+                <!-- Member Information -->
+                <div class="section">
+                    <div class="section-title">Member Information</div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                </div>
+
+                <!-- Product 1: Men's Tank Top -->
+                <div class="section">
+                    <div class="section-title">Apparel Selection</div>
+                    
+                    <div class="product-card">
+                        <img src="https://fullyamped.com/cdn/shop/files/29681132850923152BLACK.png?v=1770275555&width=400" alt="Men's Tank Top" class="product-image">
+                        <div class="product-header">
+                            <div class="product-name">Men's Tank Top (Black)</div>
+                            <div class="product-price">$28.50</div>
+                        </div>
+                        
+                        <div class="size-selector">
+                            <div class="size-option">
+                                <input type="radio" id="men_tank_s" name="men_tank_size" value="Small">
+                                <label for="men_tank_s">S</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tank_m" name="men_tank_size" value="Medium">
+                                <label for="men_tank_m">M</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tank_l" name="men_tank_size" value="Large">
+                                <label for="men_tank_l">L</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tank_xl" name="men_tank_size" value="X-Large">
+                                <label for="men_tank_xl">XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tank_2xl" name="men_tank_size" value="2X-Large">
+                                <label for="men_tank_2xl">2XL</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <input type="number" id="men_tank_qty" name="men_tank_qty" min="0" value="0" data-price="28.50">
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Women's Racerback Tank -->
+                    <div class="product-card">
+                        <img src="https://fullyamped.com/cdn/shop/files/2968113285092272BLACK.png?v=1770275550&width=400" alt="Women's Racerback Tank" class="product-image">
+                        <div class="product-header">
+                            <div class="product-name">Women's Racerback Tank (Black)</div>
+                            <div class="product-price">$28.50</div>
+                        </div>
+                        
+                        <div class="size-selector">
+                            <div class="size-option">
+                                <input type="radio" id="women_tank_xs" name="women_tank_size" value="X-Small">
+                                <label for="women_tank_xs">XS</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tank_s" name="women_tank_size" value="Small">
+                                <label for="women_tank_s">S</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tank_m" name="women_tank_size" value="Medium">
+                                <label for="women_tank_m">M</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tank_l" name="women_tank_size" value="Large">
+                                <label for="women_tank_l">L</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tank_xl" name="women_tank_size" value="X-Large">
+                                <label for="women_tank_xl">XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tank_2xl" name="women_tank_size" value="2X-Large">
+                                <label for="women_tank_2xl">2XL</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <input type="number" id="women_tank_qty" name="women_tank_qty" min="0" value="0" data-price="28.50">
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Women's T-Shirt -->
+                    <div class="product-card">
+                        <img src="https://fullyamped.com/cdn/shop/files/29681132850925232BLACK.png?v=1770275563&width=400" alt="Women's T-Shirt" class="product-image">
+                        <div class="product-header">
+                            <div class="product-name">Women's T-Shirt (Black)</div>
+                            <div class="product-price">$28.50</div>
+                        </div>
+                        
+                        <div class="size-selector">
+                            <div class="size-option">
+                                <input type="radio" id="women_tee_s" name="women_tee_size" value="Small">
+                                <label for="women_tee_s">S</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tee_m" name="women_tee_size" value="Medium">
+                                <label for="women_tee_m">M</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tee_l" name="women_tee_size" value="Large">
+                                <label for="women_tee_l">L</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tee_xl" name="women_tee_size" value="X-Large">
+                                <label for="women_tee_xl">XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="women_tee_2xl" name="women_tee_size" value="2X-Large">
+                                <label for="women_tee_2xl">2XL</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <input type="number" id="women_tee_qty" name="women_tee_qty" min="0" value="0" data-price="28.50">
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Men's T-Shirt -->
+                    <div class="product-card">
+                        <img src="https://fullyamped.com/cdn/shop/files/2968113285092652BLACK.png?v=1770275567&width=400" alt="Men's T-Shirt" class="product-image">
+                        <div class="product-header">
+                            <div class="product-name">Men's T-Shirt (Black)</div>
+                            <div class="product-price">$28.50</div>
+                        </div>
+                        
+                        <div class="size-selector">
+                            <div class="size-option">
+                                <input type="radio" id="men_tee_s" name="men_tee_size" value="Small">
+                                <label for="men_tee_s">S</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tee_m" name="men_tee_size" value="Medium">
+                                <label for="men_tee_m">M</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tee_l" name="men_tee_size" value="Large">
+                                <label for="men_tee_l">L</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tee_xl" name="men_tee_size" value="X-Large">
+                                <label for="men_tee_xl">XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tee_2xl" name="men_tee_size" value="2X-Large">
+                                <label for="men_tee_2xl">2XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_tee_3xl" name="men_tee_size" value="3X-Large">
+                                <label for="men_tee_3xl">3XL</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <input type="number" id="men_tee_qty" name="men_tee_qty" min="0" value="0" data-price="28.50">
+                        </div>
+                    </div>
+
+                    <!-- Product 5: Men's 3/4 Sleeve -->
+                    <div class="product-card">
+                        <img src="https://fullyamped.com/cdn/shop/files/296811328509242154VINTAGESMOKE_GRANITE_HEATHER.png?v=1770275559&width=400" alt="Men's 3/4 Sleeve" class="product-image">
+                        <div class="product-header">
+                            <div class="product-name">Men's 3/4 Sleeve (Vintage Smoke Heather)</div>
+                            <div class="product-price">$34.50</div>
+                        </div>
+                        
+                        <div class="size-selector">
+                            <div class="size-option">
+                                <input type="radio" id="men_34_s" name="men_34_size" value="Small">
+                                <label for="men_34_s">S</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_34_m" name="men_34_size" value="Medium">
+                                <label for="men_34_m">M</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_34_l" name="men_34_size" value="Large">
+                                <label for="men_34_l">L</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_34_xl" name="men_34_size" value="X-Large">
+                                <label for="men_34_xl">XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_34_2xl" name="men_34_size" value="2X-Large">
+                                <label for="men_34_2xl">2XL</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="men_34_3xl" name="men_34_size" value="3X-Large">
+                                <label for="men_34_3xl">3XL</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <input type="number" id="men_34_qty" name="men_34_qty" min="0" value="0" data-price="34.50">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-title">Order Summary</div>
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item total-row">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="section">
+                    <div class="form-group">
+                        <label for="notes">Additional Notes (Optional)</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Any special requests or comments..."></textarea>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>⚠️ Important:</strong> Please review your order carefully before submitting. Orders will be placed in bulk and cannot be changed after submission.
+                </div>
+
+                <button type="submit" class="submit-button">Submit Order Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ⚠️ IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwxVjVnSXZ8u0Bvdx6mC6WVuMe6Us-XwHo6GelVEHtgBAMX-E9dwFDNlTRN5-PHgDFVog/exec';
+
+        // Calculate total
+        function updateTotal() {
+            const quantityInputs = document.querySelectorAll('input[type="number"]');
+            let total = 0;
+            
+            quantityInputs.forEach(input => {
+                const qty = parseInt(input.value) || 0;
+                const price = parseFloat(input.getAttribute('data-price'));
+                total += qty * price;
+            });
+            
+            document.getElementById('subtotal').textContent = '$' + total.toFixed(2);
+            document.getElementById('total').textContent = '$' + total.toFixed(2);
+        }
+
+        // Add event listeners to quantity inputs
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+
+        // Form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check if Script URL has been configured
+            if (SCRIPT_URL === 'PASTE_YOUR_SCRIPT_URL_HERE') {
+                alert('⚠️ Setup Required: Please follow the setup guide to connect this form to Google Sheets.\n\nThe form administrator needs to configure the Google Apps Script URL.');
+                return;
+            }
+            
+            const submitButton = document.querySelector('.submit-button');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            
+            const name = document.getElementById('name').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Collect all orders
+            const orders = [];
+            
+            // Men's Tank
+            const menTankQty = parseInt(document.getElementById('men_tank_qty').value) || 0;
+            if (menTankQty > 0) {
+                const menTankSize = document.querySelector('input[name="men_tank_size"]:checked');
+                if (!menTankSize) {
+                    alert('Please select a size for Men\'s Tank Top');
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return;
+                }
+                orders.push({
+                    product: "Men's Tank Top (Black)",
+                    size: menTankSize.value,
+                    quantity: menTankQty,
+                    price: 28.50,
+                    total: menTankQty * 28.50
+                });
+            }
+            
+            // Women's Tank
+            const womenTankQty = parseInt(document.getElementById('women_tank_qty').value) || 0;
+            if (womenTankQty > 0) {
+                const womenTankSize = document.querySelector('input[name="women_tank_size"]:checked');
+                if (!womenTankSize) {
+                    alert('Please select a size for Women\'s Racerback Tank');
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return;
+                }
+                orders.push({
+                    product: "Women's Racerback Tank (Black)",
+                    size: womenTankSize.value,
+                    quantity: womenTankQty,
+                    price: 28.50,
+                    total: womenTankQty * 28.50
+                });
+            }
+            
+            // Women's Tee
+            const womenTeeQty = parseInt(document.getElementById('women_tee_qty').value) || 0;
+            if (womenTeeQty > 0) {
+                const womenTeeSize = document.querySelector('input[name="women_tee_size"]:checked');
+                if (!womenTeeSize) {
+                    alert('Please select a size for Women\'s T-Shirt');
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return;
+                }
+                orders.push({
+                    product: "Women's T-Shirt (Black)",
+                    size: womenTeeSize.value,
+                    quantity: womenTeeQty,
+                    price: 28.50,
+                    total: womenTeeQty * 28.50
+                });
+            }
+            
+            // Men's Tee
+            const menTeeQty = parseInt(document.getElementById('men_tee_qty').value) || 0;
+            if (menTeeQty > 0) {
+                const menTeeSize = document.querySelector('input[name="men_tee_size"]:checked');
+                if (!menTeeSize) {
+                    alert('Please select a size for Men\'s T-Shirt');
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return;
+                }
+                orders.push({
+                    product: "Men's T-Shirt (Black)",
+                    size: menTeeSize.value,
+                    quantity: menTeeQty,
+                    price: 28.50,
+                    total: menTeeQty * 28.50
+                });
+            }
+            
+            // Men's 3/4 Sleeve
+            const men34Qty = parseInt(document.getElementById('men_34_qty').value) || 0;
+            if (men34Qty > 0) {
+                const men34Size = document.querySelector('input[name="men_34_size"]:checked');
+                if (!men34Size) {
+                    alert('Please select a size for Men\'s 3/4 Sleeve');
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return;
+                }
+                orders.push({
+                    product: "Men's 3/4 Sleeve (Vintage Smoke Heather)",
+                    size: men34Size.value,
+                    quantity: men34Qty,
+                    price: 34.50,
+                    total: men34Qty * 34.50
+                });
+            }
+            
+            if (orders.length === 0) {
+                alert('Please select at least one item to order');
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+                return;
+            }
+            
+            // Calculate grand total
+            const grandTotal = orders.reduce((sum, order) => sum + order.total, 0);
+            
+            // Create order object
+            const orderData = {
+                name: name,
+                orders: orders,
+                notes: notes,
+                total: grandTotal
+            };
+            
+            // Submit to Google Sheets
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => {
+                // Show success message
+                alert(`✅ Thank you, ${name}!\n\nYour order has been submitted successfully.\n\nTotal: $${grandTotal.toFixed(2)}\n\nYour order will be included in the bulk order on February 14th, 2026.`);
+                
+                // Reset form
+                document.getElementById('orderForm').reset();
+                updateTotal();
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('⚠️ There was an error submitting your order. Please try again or contact the gym administrator.');
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
